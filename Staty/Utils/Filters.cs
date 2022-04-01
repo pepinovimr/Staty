@@ -6,6 +6,7 @@ using Staty.Data;
 namespace Staty.Utils
 {
     //Třída na filtraci záznamů
+    //Nápad: Přidat searchbar na NameFilter, který v reálném čase aktualizuje výsledky?
     internal class Filters
     {
         public static void ContinentFilter()   
