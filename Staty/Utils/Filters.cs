@@ -35,7 +35,7 @@ namespace Staty.Utils
                 if (!x.Name.ToUpper().StartsWith(input.ToUpper()))
                     states.Remove(x);
             }
-            if (input.Length <= 2)
+            if (input.Length == 2)  //spustí vyhledávání přes shortcut jen pokud má input 2 znaky (Pokud bychom chtěli hledat i z jedné zkratky, tak stačí první =  změnit na <)
             {
                 states.AddRange(ShortcutFilter(input));
                 ReadStates.CurrentlyShownStates = states.Distinct().ToList();        //Řeší duplikaci Států
