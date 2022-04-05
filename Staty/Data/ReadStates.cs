@@ -17,11 +17,21 @@ namespace Staty.Data
             string pathStates = "Data/staty_sveta.csv";
             if (File.Exists(pathStates))
             {
-                using (StreamReader sr = new StreamReader(pathStates, Encoding.UTF8))
+                try
                 {
-                    string namesLn = sr.ReadLine();
-                    string[] names = namesLn.Split(';');
-                    return names;
+                    using (StreamReader sr = new StreamReader(pathStates, Encoding.UTF8))
+                    {
+                        string namesLn = sr.ReadLine();
+                        string[] names = namesLn.Split(';');
+                        return names;
+                    }
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Chyba při načítání dat ze souboru\nUkončuji program");
+                    System.Threading.Thread.Sleep(3000);
+                    Environment.Exit(0);
+                    return null;
                 }
             }
             else
@@ -40,16 +50,26 @@ namespace Staty.Data
             if (File.Exists(pathStates))
             {
                 List<State> st = new List<State>();
-                using (StreamReader sr = new StreamReader(pathStates, Encoding.UTF8))
+                try
                 {
-                    sr.ReadLine();
-                    while (!sr.EndOfStream)
+                    using (StreamReader sr = new StreamReader(pathStates, Encoding.UTF8))
                     {
-                        var line = sr.ReadLine();               //var - veme si typ proměné podle toho, co je do něj zapsáno jako první
-                        var values = line.Split(';');           //může být i pole, nebo například List
-                        st.Add(new State(values[0], values[1], values[2], values[3], values[4], uint.Parse(values[5]), int.Parse(values[6])));  
+                        sr.ReadLine();
+                        while (!sr.EndOfStream)
+                        {
+                            var line = sr.ReadLine();               //var - veme si typ proměné podle toho, co je do něj zapsáno jako první
+                            var values = line.Split(';');           //může být i pole, nebo například List
+                            st.Add(new State(values[0], values[1], values[2], values[3], values[4], uint.Parse(values[5]), int.Parse(values[6])));
+                        }
+                        return st;
                     }
-                    return st;
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Chyba při načítání dat ze souboru\nUkončuji program");
+                    System.Threading.Thread.Sleep(3000);
+                    Environment.Exit(0);
+                    return null;
                 }
             }
             else
