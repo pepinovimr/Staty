@@ -5,7 +5,7 @@ using Staty.Data;
 
 namespace Staty.Utils
 {
-    //
+    //Spíše proof of concept pro mě, že něco takovýho dokážu s tímto designem programu udělat
     internal class SearchBar
     {
         public static void SearchBarInterface(Paginator pg)
