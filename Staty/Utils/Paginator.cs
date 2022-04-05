@@ -30,6 +30,8 @@ namespace Staty.Utils
         public static void UpdateVariables()
         {
             MaxPageIndex = ReadStates.CurrentlyShownStates.Count / ItemsPerPage;
+            if (ActivePageIndex > MaxPageIndex)		//Opravuje bug, při filtraci států na menší počet stran, než na které právě jsme
+                ActivePageIndex = MaxPageIndex;
             itemsRange = GetStatesRange();
         }
 

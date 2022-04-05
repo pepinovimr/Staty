@@ -46,7 +46,7 @@ namespace Staty.Utils
             Paginator.UpdateVariables();
         }
 
-        private static List<State> ShortcutFilter(string input)
+        public static List<State> ShortcutFilter(string input)
         {
             List<State> states = new List<State>(ReadStates.AllStates);
 
@@ -63,6 +63,13 @@ namespace Staty.Utils
             ReadStates.CurrentlyShownStates = new List<State>(ReadStates.AllStates);
             Paginator.UpdateVariables();
             Orderers.NameOrder();
+        }
+
+        public static void ResetAll()
+        {
+            ReadStates.CurrentlyShownStates = new List<State>(ReadStates.AllStates);
+            Paginator.UpdateVariables();
+            Orderers.NameOrderAsc();
         }
     }
 }

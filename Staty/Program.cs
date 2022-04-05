@@ -22,10 +22,11 @@ namespace Staty
                     case ConsoleKey.PageUp: paginator.NextPage(); break;
                     case ConsoleKey.PageDown: paginator.PrevPage(); break;
                     case ConsoleKey.Backspace: running = false; break;
-                    case ConsoleKey.Escape: Filters.ResetAllFilters(); break;
+                    case ConsoleKey.Escape: Filters.ResetAll(); break;
                     case ConsoleKey.F1: HelpWriter.WriteHelp(); break;
                     case ConsoleKey.F2: Filters.ContinentFilter(); break;
                     case ConsoleKey.F3: Filters.NameFilter(); break;
+                    case ConsoleKey.F4: SearchBar.SearchBarInterface(paginator); break;
                     case ConsoleKey.F5: Orderers.NameOrder(); break;
                     case ConsoleKey.F6: Orderers.AreaOrder(); break;
                     case ConsoleKey.F7: Orderers.PopulationOrder(); break;
