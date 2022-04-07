@@ -6,7 +6,6 @@ using Staty.Data;
 namespace Staty.Utils
 {
     //Třída na filtraci záznamů
-    //Nápad: Přidat searchbar na NameFilter, který v reálném čase aktualizuje výsledky?
     internal class Filters
     {
         public static void ContinentFilter()   
@@ -58,14 +57,6 @@ namespace Staty.Utils
             }
             return states;
         }
-
-        public static void ResetAllFilters()
-        {
-            ReadStates.CurrentlyShownStates = new List<State>(ReadStates.AllStates);
-            Paginator.UpdateVariables();
-            Orderers.NameOrder();
-        }
-
         public static void ResetAll()
         {
             ReadStates.CurrentlyShownStates = new List<State>(ReadStates.AllStates);
