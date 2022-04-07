@@ -19,7 +19,6 @@ namespace Staty.Utils
                 var keyPressed = Console.ReadKey().Key;
                 switch (keyPressed)
                 {
-                    case ConsoleKey.Enter:
                     /*case ConsoleKey.Backspace when input.Length == 0:		WHEN FUNGUJE AŽ OD .NET6
                         running = false;
                         break;*/
