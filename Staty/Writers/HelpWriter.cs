@@ -13,6 +13,7 @@ namespace Staty.Writers
                 "F1 - help (nápověda, o programu)" +
                 "\nF2 – filtr podle kontinentu"+
                 "\nF3 - filtr podle názvu, případně značky"+
+                "\nF4 - SearchBar, který hned po zadání filtruje data, filtr stejný jako na F3"+
                 "\nF5 - řazení podle názvu" +
                 "\nF6 - řazení podle rozlohy" +
                 "\nF7 - řazení podle počtu obyvatel" +

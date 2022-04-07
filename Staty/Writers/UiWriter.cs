@@ -21,7 +21,7 @@ namespace Staty.Writers
             Console.BackgroundColor = ConsoleColor.Black;
             Console.BackgroundColor = ConsoleColor.DarkBlue;
             //Console.WriteLine("{0,"+State.alignNumber[0]+ "}{1," + State.alignNumber[1] + "}{2," + State.alignNumber[2] + "}{3," + State.alignNumber[3] + "}{4," + State.alignNumber[4] + "}{5," + State.alignNumber[5] + "}{6," + State.alignNumber[6] + "}", Data.ReadStates.UiNames[0], Data.ReadStates.UiNames[1], Data.ReadStates.UiNames[2], Data.ReadStates.UiNames[3], Data.ReadStates.UiNames[4], Data.ReadStates.UiNames[5], Data.ReadStates.UiNames[6]);
-            for (int i = 0; i < alignNumber.Length; i++)
+            for (int i = 0; i < alignNumber.Length; i++)        //Toto mi přijde jako elegantnější způsob výpisu
             {
                 Console.Write("{0,"+alignNumber[i]+"}", ReadStates.ColumnNames[i]);
             }

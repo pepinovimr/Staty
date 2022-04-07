@@ -8,18 +8,18 @@ namespace Staty.Data
     //Třída získává a ukládá data z .csv souboru
     internal class ReadStates
     {
-        public static readonly List<State> AllStates = GetAllStates(); //List se všemi státy, neměnící se -> proto readonly
+        private const string pathStates = "Data/staty_sveta.csv";
+        public static readonly List<State> AllStates = GetAllStates(pathStates); //List se všemi státy, neměnící se -> proto readonly
         public static List<State> CurrentlyShownStates = AllStates;         //List s aktuálně zobrazovanými státy
-        public static string[] ColumnNames = GetColumnNames();    //Stringové pole s názvy jednotlivých sloupců
+        public static string[] ColumnNames = GetColumnNames(pathStates);    //Stringové pole s názvy jednotlivých sloupců
 
-        private static string[] GetColumnNames()       //Získá jen první řádku ze souboru a vrátí ve stringovém poli
+        private static string[] GetColumnNames(string path)       //Získá jen první řádku ze souboru a vrátí ve stringovém poli
         {
-            string pathStates = "Data/staty_sveta.csv";
-            if (File.Exists(pathStates))
+            if (File.Exists(path))
             {
                 try
                 {
-                    using (StreamReader sr = new StreamReader(pathStates, Encoding.UTF8))
+                    using (StreamReader sr = new StreamReader(path, Encoding.UTF8))
                     {
                         string namesLn = sr.ReadLine();
                         string[] names = namesLn.Split(';');
@@ -42,17 +42,16 @@ namespace Staty.Data
         }
 
             //Nějak jsem při psaní zapomněl vynechat kolonku státní zřízení.
-            //Teď už jí tam nechám, ale kdybych jí měl vynechat, tak jen vynechám values[3] a pokračuji dál s values[4].
+            //Teď už jí tam nechám, ale kdybych jí měl vynechat, tak jen v st.Add()vynechám values[3] a pokračuji dál s values[4].
             //Samozřejmě by se podle toho musel i upravit objekt State a všechny výpisy...
-        private static List<State> GetAllStates()  //Získá vše, kromě první řádky ze souboru do State a vrátí v Listu
+        private static List<State> GetAllStates(string path)  //Získá vše, kromě první řádky ze souboru do State a vrátí v Listu
         {
-            string pathStates = "Data/staty_sveta.csv";
-            if (File.Exists(pathStates))
+            if (File.Exists(path))
             {
                 List<State> st = new List<State>();
                 try
                 {
-                    using (StreamReader sr = new StreamReader(pathStates, Encoding.UTF8))
+                    using (StreamReader sr = new StreamReader(path, Encoding.UTF8))
                     {
                         sr.ReadLine();
                         while (!sr.EndOfStream)
@@ -64,7 +63,7 @@ namespace Staty.Data
                         return st;
                     }
                 }
-                catch (Exception)
+                catch (Exception)       //chytá výjimku, pokud by si někdo hrál s tím .csv souborem
                 {
                     Console.WriteLine("Chyba při načítání dat ze souboru\nUkončuji program");
                     System.Threading.Thread.Sleep(3000);

@@ -10,7 +10,7 @@ namespace Staty
         {
             Console.SetWindowSize(GetWindowWidth(), 40);
             Console.SetBufferSize(Console.WindowWidth, Console.WindowHeight);
-            Console.ForegroundColor = ConsoleColor.White;                       //defaultně není text v konzoli bílý, ale je to nějaká hodně málo šeděbílá
+            Console.ForegroundColor = ConsoleColor.White;                       //defaultně není text v konzoli bílý, ale je to nějaká hodně světlá šedobílá
             Paginator paginator = new Paginator();
             Orderers.NameOrder();   //Dokáže rozpoznat a zařadit i CH na správné místo po H
             bool running = true;
